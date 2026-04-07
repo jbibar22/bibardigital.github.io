@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RapidFlow Plumbing — Service Website Concept | Bibar Digital</title>
+  <meta
+    name="description"
+    content="A modern plumbing service website concept by Bibar Digital with emergency contact focus, service sections, trust content, and quote calls to action."
+  />
+  <meta name="theme-color" content="#0b1120" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            serif: ['Georgia', 'Times New Roman', 'serif'],
+          },
+          boxShadow: {
+            glow: '0 18px 60px rgba(59,130,246,.16)',
+            soft: '0 12px 30px rgba(2,6,23,.22)',
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    html, body {
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+      background: #0b1120;
+    }
+    * {
+      transition: background-color .25s ease, border-color .25s ease, color .25s ease, transform .25s ease, opacity .25s ease;
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity .8s ease, transform .8s ease;
+    }
+    .hero-overlay {
+      background:
+        radial-gradient(circle at top right, rgba(14,165,233,.16), transparent 28%),
+        linear-gradient(to bottom, rgba(11,17,32,.35), rgba(11,17,32,.94));
+    }
+  </style>
+</head>
+<body class="bg-[#0b1120] text-white antialiased">
+  <!-- Background -->
+  <div class="fixed inset-0 -z-10 overflow-hidden">
+    <div class="absolute right-0 top-0 h-96 w-96 rounded-full bg-cyan-400/10 blur-3xl"></div>
+    <div class="absolute left-0 top-1/3 h-80 w-80 rounded-full bg-blue-500/10 blur-3xl"></div>
+    <div class="absolute bottom-0 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-sky-300/5 blur-3xl"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-[#0b1120]/80 backdrop-blur-xl">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+      <a href="#home" class="flex items-center gap-3">
+        <div class="flex h-11 w-11 items-center justify-center rounded-2xl border border-cyan-400/30 bg-cyan-400/10 text-sm font-bold text-cyan-300">
+          RP
+        </div>
+        <div>
+          <div class="text-base font-semibold tracking-wide text-white">RapidFlow Plumbing</div>
+          <div class="text-xs uppercase tracking-[0.22em] text-slate-400">Service Concept</div>
+        </div>
+      </a>
+
+      <nav class="hidden items-center gap-8 md:flex">
+        <a href="#about" class="text-sm font-medium text-slate-300 hover:text-cyan-300">About</a>
+        <a href="#services" class="text-sm font-medium text-slate-300 hover:text-cyan-300">Services</a>
+        <a href="#reviews" class="text-sm font-medium text-slate-300 hover:text-cyan-300">Reviews</a>
+        <a href="#contact" class="text-sm font-medium text-slate-300 hover:text-cyan-300">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="#contact" class="hidden rounded-xl border border-cyan-400/30 bg-cyan-400/10 px-5 py-3 text-sm font-semibold text-cyan-200 hover:bg-cyan-400/20 md:inline-flex">
+          Request a Quote
+        </a>
+
+        <button
+          id="menuBtn"
+          type="button"
+          class="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-slate-200 md:hidden"
+          aria-label="Open menu"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileMenu" class="hidden border-t border-white/10 bg-[#0b1120] px-6 py-4 md:hidden">
+      <nav class="flex flex-col gap-4">
+        <a href="#about" class="mobile-link text-sm font-medium text-slate-300">About</a>
+        <a href="#services" class="mobile-link text-sm font-medium text-slate-300">Services</a>
+        <a href="#reviews" class="mobile-link text-sm font-medium text-slate-300">Reviews</a>
+        <a href="#contact" class="mobile-link text-sm font-medium text-slate-300">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <!-- Emergency bar -->
+    <section class="border-b border-cyan-400/15 bg-cyan-400/10">
+      <div class="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-3 text-sm font-medium text-cyan-100 sm:flex-row sm:items-center sm:justify-between lg:px-8">
+        <div>Emergency plumbing support available for urgent service calls</div>
+        <a href="tel:+15551234567" class="inline-flex items-center font-semibold text-white hover:text-cyan-200">
+          Call Now: (555) 123-4567
+        </a>
+      </div>
+    </section>
+
+    <!-- Hero -->
+    <section class="relative overflow-hidden">
+      <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=1600&q=80')] bg-cover bg-center opacity-20"></div>
+      <div class="hero-overlay absolute inset-0"></div>
+
+      <div class="relative mx-auto max-w-7xl px-6 pb-24 pt-20 lg:px-8 lg:pb-32 lg:pt-28">
+        <div class="max-w-3xl reveal">
+          <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-400/25 bg-cyan-400/10 px-4 py-2 text-sm font-medium text-cyan-200">
+            <span class="inline-block h-2 w-2 rounded-full bg-cyan-300"></span>
+            Modern plumbing service website concept by Bibar Digital
+          </div>
+
+          <h1 class="max-w-3xl font-serif text-5xl font-semibold leading-tight tracking-tight text-white sm:text-6xl lg:text-7xl">
+            Fast, reliable plumbing service when you need it most
+          </h1>
+
+          <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+            A service-focused website concept built for local plumbing businesses that need trust, clarity, strong contact actions, and professional online presentation.
+          </p>
+
+          <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+            <a href="#contact" class="inline-flex items-center justify-center rounded-xl bg-cyan-400 px-6 py-4 text-base font-semibold text-slate-950 hover:bg-cyan-300">
+              Request a Quote
+            </a>
+            <a href="tel:+15551234567" class="inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/5 px-6 py-4 text-base font-semibold text-white hover:border-cyan-300 hover:text-cyan-200">
+              Call Now
+            </a>
+          </div>
+
+          <div class="mt-12 grid max-w-2xl grid-cols-2 gap-4 sm:grid-cols-4">
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
+              <div class="text-2xl font-bold text-white">24/7</div>
+              <div class="mt-1 text-sm text-slate-400">Emergency-ready</div>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
+              <div class="text-2xl font-bold text-white">Fast</div>
+              <div class="mt-1 text-sm text-slate-400">Response-focused</div>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
+              <div class="text-2xl font-bold text-white">Trusted</div>
+              <div class="mt-1 text-sm text-slate-400">Professional service</div>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
+              <div class="text-2xl font-bold text-white">Local</div>
+              <div class="mt-1 text-sm text-slate-400">Community service</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Concept note -->
+    <section class="mx-auto max-w-7xl px-6 pt-8 lg:px-8">
+      <div class="reveal rounded-3xl border border-cyan-400/20 bg-cyan-400/5 p-5 text-sm leading-7 text-cyan-100">
+        <span class="font-semibold">Concept Website Notice:</span> This is a portfolio concept created by Bibar Digital to showcase a professional plumbing service website style.
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+      <div class="grid gap-10 lg:grid-cols-2 lg:items-center">
+        <div class="reveal">
+          <div class="inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-slate-300">
+            About the Concept
+          </div>
+          <h2 class="mt-6 font-serif text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+            A service website built to create trust and generate more inquiries
+          </h2>
+        </div>
+
+        <div class="reveal">
+          <p class="text-lg leading-8 text-slate-300">
+            This concept is designed for a local plumbing company that needs a professional online presence. The layout emphasizes reliability, fast response, visible contact information, and service clarity so visitors can quickly understand the offer and take action.
+          </p>
+
+          <div class="mt-8 grid gap-4 sm:grid-cols-2">
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+              <div class="text-sm uppercase tracking-[0.2em] text-slate-400">Brand Feel</div>
+              <div class="mt-2 text-lg font-semibold text-white">Reliable · Clean · Professional</div>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+              <div class="text-sm uppercase tracking-[0.2em] text-slate-400">Ideal Use</div>
+              <div class="mt-2 text-lg font-semibold text-white">Plumbers & Home Service Brands</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why it works -->
+    <section class="mx-auto max-w-7xl px-6 py-6 lg:px-8">
+      <div class="grid gap-6 md:grid-cols-3">
+        <div class="reveal rounded-3xl border border-white/10 bg-white/5 p-8 shadow-soft">
+          <div class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-400/10 text-cyan-300">01</div>
+          <h3 class="text-xl font-semibold text-white">Fast Contact Paths</h3>
+          <p class="mt-3 text-slate-300">
+            Call buttons and quote actions are placed clearly across the page to improve conversion.
+          </p>
+        </div>
+
+        <div class="reveal rounded-3xl border border-white/10 bg-white/5 p-8 shadow-soft">
+          <div class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-400/10 text-cyan-300">02</div>
+          <h3 class="text-xl font-semibold text-white">Trust Signals</h3>
+          <p class="mt-3 text-slate-300">
+            Service descriptions, review sections, and reassuring messaging help build confidence quickly.
+          </p>
+        </div>
+
+        <div class="reveal rounded-3xl border border-white/10 bg-white/5 p-8 shadow-soft">
+          <div class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-400/10 text-cyan-300">03</div>
+          <h3 class="text-xl font-semibold text-white">Clear Structure</h3>
+          <p class="mt-3 text-slate-300">
+            Visitors immediately understand what services are offered and how to get help fast.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+      <div class="reveal mx-auto max-w-3xl text-center">
+        <div class="inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-slate-300">
+          Services
+        </div>
+        <h2 class="mt-6 font-serif text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+          Service sections designed for real plumbing businesses
+        </h2>
+        <p class="mt-4 text-lg text-slate-300">
+          This concept layout is built to make services clear, practical, and easy to scan.
+        </p>
+      </div>
+
+      <div class="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+        <div class="reveal rounded-3xl border border-white/10 bg-white/5 p-6">
+          <div class="text-sm uppercase tracking-[0.2em] text-cyan-300">Urgent</div>
+          <h3 class="mt-3 text-2xl font-semibold text-white">Emergency Repairs</h3>
+          <p class="mt-3 text-slate-300">Fast response for urgent plumbing issues that need immediate attention.</p>
+        </div>
+
+        <div class="reveal rounded-3xl border border-white/10 bg-white/5 p-6">
+          <div class="text-sm uppercase tracking-[0.2em] text-cyan-300">Reliable</div>
+          <h3 class="mt-3 text-2xl font-semibold text-white">Leak Detection</h3>
+          <p class="mt-3 text-slate-300">Identify and fix leaks quickly before they become more expensive problems.</p>
+        </div>
+
+        <div class="reveal rounded-3xl border border-white/10 bg-white/5 p-6">
+          <div class="text-sm uppercase tracking-[0.2em] text-cyan-300">Essential</div>
+          <h3 class="mt-3 text-2xl font-semibold text-white">Drain Cleaning</h3>
+          <p class="mt-3 text-slate-300">Clear blocked drains and restore normal flow with professional service.</p>
+        </div>
+
+        <div class="reveal rounded-3xl border border-white/10 bg-white/5 p-6">
+          <div class="text-sm uppercase tracking-[0.2em] text-cyan-300">Installation</div>
+          <h3 class="mt-3 text-2xl font-semibold text-white">Fixture Replacement</h3>
+          <p class="mt-3 text-slate-300">Install or replace plumbing fixtures with clean, dependable workmanship.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust section -->
+    <section class="mx-auto max-w-7xl px-6 py-10 lg:px-8">
+      <div class="reveal overflow-hidden rounded-[2rem] border border-cyan-400/20 bg-gradient-to-r from-cyan-400/10 via-white/5 to-transparent p-8 sm:p-10 lg:p-14">
+        <div class="grid gap-8 lg:grid-cols-[1.1fr_.9fr] lg:items-center">
+          <div>
+            <h2 class="font-serif text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+              Built to reassure visitors and move them toward action
+            </h2>
+            <p class="mt-4 max-w-2xl text-lg text-slate-300">
+              Service businesses need clarity and trust more than anything else. This design keeps contact visible, emphasizes urgency where needed, and supports quote requests without overcomplicating the experience.
+            </p>
+          </div>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div class="rounded-2xl border border-white/10 bg-black/20 p-5">
+              <div class="text-3xl font-bold text-white">24/7</div>
+              <div class="mt-1 text-sm text-slate-400">Emergency availability style</div>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-black/20 p-5">
+              <div class="text-3xl font-bold text-white">Local</div>
+              <div class="mt-1 text-sm text-slate-400">Service area positioning</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews -->
+    <section id="reviews" class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+      <div class="reveal mx-auto max-w-3xl text-center">
+        <div class="inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-slate-300">
+          Reviews
+        </div>
+        <h2 class="mt-6 font-serif text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+          Review sections that reinforce professionalism and trust
+        </h2>
+      </div>
+
+      <div class="mt-12 grid gap-6 lg:grid-cols-3">
+        <article class="reveal rounded-3xl border border-white/10 bg-white/5 p-8">
+          <div class="mb-4 text-cyan-300">★★★★★</div>
+          <p class="text-slate-300 leading-8">
+            “A strong example of how a plumbing company can look more professional and trustworthy online.”
+          </p>
+          <div class="mt-6 text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">Sample Review Layout</div>
+        </article>
+
+        <article class="reveal rounded-3xl border border-white/10 bg-white/5 p-8">
+          <div class="mb-4 text-cyan-300">★★★★★</div>
+          <p class="text-slate-300 leading-8">
+            “The contact buttons are clear, the services are easy to understand, and the design feels reliable.”
+          </p>
+          <div class="mt-6 text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">Sample Review Layout</div>
+        </article>
+
+        <article class="reveal rounded-3xl border border-white/10 bg-white/5 p-8">
+          <div class="mb-4 text-cyan-300">★★★★★</div>
+          <p class="text-slate-300 leading-8">
+            “This layout makes it easy for a local customer to trust the business and request help quickly.”
+          </p>
+          <div class="mt-6 text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">Sample Review Layout</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+      <div class="grid gap-10 lg:grid-cols-[1fr_1.05fr]">
+        <div class="reveal">
+          <div class="inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-slate-300">
+            Contact / Quote
+          </div>
+          <h2 class="mt-6 font-serif text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+            Need plumbing help?
+          </h2>
+          <p class="mt-4 max-w-xl text-lg text-slate-300">
+            This final section is built to encourage quote requests and direct phone calls from potential customers.
+          </p>
+
+          <div class="mt-8 space-y-5 text-slate-300">
+            <div>
+              <div class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Phone</div>
+              <div class="mt-1">(555) 123-4567</div>
+            </div>
+            <div>
+              <div class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Service Area</div>
+              <div class="mt-1">Your City and surrounding areas</div>
+            </div>
+            <div>
+              <div class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Availability</div>
+              <div class="mt-1">Emergency support available</div>
+            </div>
+            <div>
+              <div class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Focus</div>
+              <div class="mt-1">Fast response · dependable service · clear communication</div>
+            </div>
+          </div>
+
+          <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+            <a href="#" class="inline-flex items-center justify-center rounded-xl bg-cyan-400 px-6 py-4 text-base font-semibold text-slate-950 hover:bg-cyan-300">
+              Request a Quote
+            </a>
+            <a href="tel:+15551234567" class="inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/5 px-6 py-4 text-base font-semibold text-white hover:border-cyan-300 hover:text-cyan-200">
+              Call Now
+            </a>
+          </div>
+        </div>
+
+        <div class="reveal rounded-[2rem] border border-white/10 bg-white/5 p-4 shadow-soft">
+          <div class="grid h-full gap-4 rounded-[1.5rem] border border-white/10 bg-[#0f172a] p-5">
+            <div class="h-40 rounded-2xl bg-slate-800"></div>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="h-28 rounded-2xl bg-slate-700"></div>
+              <div class="h-28 rounded-2xl bg-slate-800"></div>
+            </div>
+            <div class="h-28 rounded-2xl bg-slate-700"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer CTA -->
+    <section class="mx-auto max-w-7xl px-6 pb-12 lg:px-8">
+      <div class="reveal rounded-[2rem] border border-cyan-400/20 bg-cyan-400/5 p-8 text-center sm:p-10">
+        <div class="text-sm uppercase tracking-[0.25em] text-cyan-300">Bibar Digital Concept Project</div>
+        <h2 class="mt-4 font-serif text-3xl font-semibold text-white sm:text-4xl">
+          Want a service website concept like this for your own portfolio?
+        </h2>
+        <p class="mx-auto mt-4 max-w-2xl text-slate-300">
+          This concept page was created to showcase a modern plumbing service website with trust-building design and strong contact flow.
+        </p>
+        <div class="mt-8">
+          <a href="index.html" class="inline-flex items-center justify-center rounded-xl bg-white px-6 py-4 text-base font-semibold text-slate-950 hover:bg-slate-200">
+            Back to Bibar Digital
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+  </script>
+</body>
+</html>
